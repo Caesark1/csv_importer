@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Customers
+{% endblock %}
+
+{% block content %}
+    <h3><p class="text-center"><strong>5 leader Customers by total spent price.</strong></p></h3>
+
+    {% for leader in leaders %}
+       
+
+    <div class="d-flex flex-column bd-highlight mb-3">
+        <div class="p-2 bd-highlight"> <strong>Username:</strong> {{ leader.customer }}</div>
+        <div class="p-2 bd-highlight"><strong>Gems:</strong> {{ leader.item }}</div>
+        <div class="p-2 bd-highlight"> <strong>Spent Money:</strong> {{ leader.total }}</div>
+    </div>
+    {% endfor %}
+    
+{% endblock %}

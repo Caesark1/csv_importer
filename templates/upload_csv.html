@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    Upload csv
+{% endblock %}
+ 
+{% block content%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Upload ONLY csv files</label>
+    <p><input type="file" name="file"></p>
+    <button type="submit">Upload</button>
+</form>
+{% endif %}
+{% endblock %}
