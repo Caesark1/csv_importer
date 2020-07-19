@@ -16,7 +16,7 @@ def upload_file(request):
         new_dataset = request.FILES["file"]
 
         if not new_dataset.name.endswith(".csv"):
-            messages.info(request, "wrong format of file")
+            messages.info(request, "wrong file format. Back to the Main page and try again")
             return render(request, "upload_csv.html")
         
         imported_data = dataset.load(new_dataset.read().decode("UTF-8"), format = "csv")
